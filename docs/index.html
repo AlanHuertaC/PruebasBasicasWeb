@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello world
+    <span id="nameid"></span>
+    <br/><br/>
+    Here new code!!!
+    <script type="text/javascript">
+
+    function getQueryParam(param){
+        var pageUrl = window.location.search.substring(1);
+        console.log(pageUrl);
+        var variables = pageUrl.split("&");
+        console.log(variables);
+        for(var i=0; i<variables.length; i++){
+            var paraName = variables[i].split("=");
+            if(paraName[0]==param){
+                return decodeURIComponent(paraName[1]);
+            }
+        }
+    }
+    document.getElementById("nameid").innerHTML = getQueryParam('name');
+    </script>
+</body>
+</html>
